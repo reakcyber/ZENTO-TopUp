@@ -1,0 +1,143 @@
+/* Improved styles for ZENTO-TopUp */
+:root{
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --accent-1:#0b69ff;
+    --accent-2:#2da6ff;
+    --text:#0f172a;
+    --muted:#6b7280;
+    --radius:12px;
+    --max-width:1100px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+.container{width:92%;max-width:var(--max-width);margin:0 auto}
+
+header{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+.brand{font-size:1.25rem;margin:0}
+.brand-accent{font-weight:700}
+.tagline{margin:2px 0 0 0;font-size:0.85rem;opacity:0.95}
+nav ul{list-style:none;padding:0;margin:0;display:flex;gap:20px}
+nav a{color:rgba(255,255,255,0.98);text-decoration:none;font-weight:600;padding:6px 8px;border-radius:6px}
+nav a:hover{background:rgba(255,255,255,0.08)}
+
+/* Hamburger / mobile nav */
+.nav-toggle{display:none;background:transparent;border:0;padding:6px;margin-left:12px;cursor:pointer;border-radius:24px}
+.nav-toggle .bar{display:block;width:28px;height:8px;background:#111;margin:6px 0;border-radius:999px;transition:transform .25s ease,opacity .2s ease}
+.site-nav{display:block}
+
+
+/* Hero */
+.hero{padding:40px 0}
+.hero-inner{display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:start}
+.hero-text h2{margin:0 0 10px 0;font-size:2rem}
+.hero-text p{margin:0 0 16px 0;color:var(--muted);line-height:1.5}
+.btn{display:inline-block;padding:10px 16px;border-radius:8px;text-decoration:none}
+.btn-cta{background:white;color:var(--accent-1);font-weight:700}
+.btn-primary{background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;border:none;padding:10px 12px;border-radius:8px;cursor:pointer}
+
+.hero-card{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(13,18,35,0.08)}
+.hero-card h3{margin-top:0}
+.topup-form{display:flex;flex-direction:column;gap:8px}
+.topup-form input,.topup-form select{padding:10px;border-radius:8px;border:1px solid #e6edf5}
+
+/* Slider styles */
+.slider{position:relative;overflow:hidden;border-radius:12px}
+.slides{display:flex;transition:transform .6s ease;will-change:transform}
+.slide{min-width:100%;height:380px;background-size:cover;background-position:center}
+.slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.45);color:white;border:0;padding:10px 14px;border-radius:8px;cursor:pointer;font-size:20px}
+.slider-btn.prev{left:12px}
+.slider-btn.next{right:12px}
+.dots{position:absolute;left:50%;transform:translateX(-50%);bottom:12px;display:flex;gap:8px}
+.dot{width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,0.7);border:0;cursor:pointer}
+.dot.active{background:white}
+
+.object-services{
+    width: 154px;
+    height: 154px;
+    bottom:12px;
+    right:12px;
+    background:rgba(255,255,255,0.85);
+    padding:8px 12px;
+    border-radius:8px;
+    box-shadow:0 6px 18px rgba(13,18,35,0.08);
+    font-size:0.85rem;
+    color:var(--text);
+}
+
+@media (max-width:900px){
+    .slide{height:300px}
+}
+@media (max-width:640px){
+    .slide{height:220px}
+    .slider-btn{padding:8px 10px}
+}
+
+/* Cards grid */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px auto}
+/* .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(13,18,35,0.04)} */
+.card h3{margin-top:0}
+/* .contact-card a{color:var(--accent-1);text-decoration:none} */
+
+/* Service card (image + label + Top Up button) */
+.cards .card a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;color:var(--text);text-decoration:none;padding:12px;border-radius:10px;transition:transform .15s ease,box-shadow .15s ease}
+.cards .card a:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(13,18,35,0.08)}
+.object-services{width:120px;height:120px;object-fit:contain;border-radius:12px;background:linear-gradient(180deg,#fff,#f7f9fc);padding:8px;box-shadow:0 6px 16px rgba(2,6,23,0.06)}
+.cards .card a button{margin-top:6px;padding:10px 14px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:white;font-weight:700;cursor:pointer}
+.cards .card a button:hover{filter:brightness(.95)}
+
+@media (max-width:900px){
+    .object-services{width:100px;height:100px}
+}
+@media (max-width:640px){
+    .object-services{width:86px;height:86px}
+    .cards{grid-template-columns:1fr}
+}
+
+/* services row layout */
+.services-row{display:flex;gap:16px;align-items:stretch;flex-wrap:wrap;justify-content:flex-start}
+.service-item{flex:0 0 160px;display:flex;flex-direction:column;align-items:center;text-decoration:none;padding:12px;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfdff);box-shadow:0 6px 16px rgba(13,18,35,0.04)}
+.service-name{display:block;margin-top:8px;font-weight:600}
+.service-item .btn{margin-top:10px}
+
+@media (max-width:900px){
+    .service-item{flex:0 0 45%}
+}
+@media (max-width:640px){
+    .service-item{flex:0 0 100%;max-width:100%}
+}
+
+/* Footer */
+footer{padding:20px 0;text-align:center;color:var(--muted);font-size:0.95rem}
+
+/* Small helpers */
+.small{font-size:0.95rem;color:var(--muted)}
+.sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+
+/* Responsive */
+@media (max-width:900px){
+    .hero-inner{grid-template-columns:1fr 300px}
+    .cards{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+    .header-inner{flex-direction:column;align-items:flex-start;gap:10px}
+    .hero-inner{grid-template-columns:1fr;}
+    .cards{grid-template-columns:1fr}
+    .brand{font-size:1.1rem}
+    .hero-text h2{font-size:1.4rem}
+
+    /* show hamburger, hide nav by default */
+    .nav-toggle{display:inline-flex;background:white;padding:8px;border-radius:999px;box-shadow:0 6px 18px rgba(2,6,23,0.12)}
+    .site-nav{position:absolute;left:0;right:0;top:72px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));padding:14px 0;border-bottom-left-radius:12px;border-bottom-right-radius:12px;box-shadow:0 10px 30px rgba(13,18,35,0.12)}
+    .site-nav ul{display:flex;flex-direction:column;gap:8px;padding:0 18px}
+    .site-nav a{color:white;padding:8px 10px;display:block}
+
+    /* when nav is hidden the attribute [hidden] is present; ensure it's actually hidden */
+    .site-nav[hidden]{display:none}
+}
+
+/* optional transform of hamburger when nav open */
+.nav-open .nav-toggle .bar:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-open .nav-toggle .bar:nth-child(2){opacity:0}
+.nav-open .nav-toggle .bar:nth-child(3){transform:translateY(-6px) rotate(-45deg)}

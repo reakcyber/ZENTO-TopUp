@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZENTO-TopUp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <header>
+        <div class="container header-inner">
+            <div class="brand-wrap">
+                <h1 class="brand">ZENTO<span class="brand-accent">-TopUp</span></h1>
+                <p class="tagline">Instant top-up good services in Cambodia</p>
+            </div>
+            <nav>
+                <ul>
+                    <!-- <li><a href="index.html">Home</a></li> -->
+                    <!-- <li><a href="about.html">About</a></li> -->
+                    <!-- <li><a href="services.html">Services</a></li> -->
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="slider" id="hero-slider" aria-roledescription="carousel">
+                    <div class="slides">
+                        <div class="slide" style="background-image:url('banner1.jpg')" role="group" aria-roledescription="slide" aria-label="Slide 1"></div>
+                        <div class="slide" style="background-image:url('banner2.jpg')" role="group" aria-roledescription="slide" aria-label="Slide 2"></div>
+                        <div class="slide" style="background-image:url('banner3.jpg')" role="group" aria-roledescription="slide" aria-label="Slide 3"></div>
+                    </div>
+                    <button class="slider-btn prev" aria-label="Previous slide">‹</button>
+                    <button class="slider-btn next" aria-label="Next slide">›</button>
+                    <div class="dots" role="tablist">
+                        <button class="dot" aria-label="Go to slide 1"></button>
+                        <button class="dot" aria-label="Go to slide 2"></button>
+                        <button class="dot" aria-label="Go to slide 3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cards container">
+            <article class="card">
+                <div class="services-row">
+                    <a href="" class="service-item" href="FreeFireTopUp.html">
+                        <img class="object-services" src="FreeFire.png" alt="FreeFire">
+                        <span class="service-name">Free Fire KH</span>
+                        <button class="btn btn-primary">Top Up</button>
+                    </a>
+                    <a href="" class="service-item">
+                        <img class="object-services" src="Mlbb.png" alt="Mobile Legend">
+                        <span class="service-name">Mobile Legend</span>
+                        <button class="btn btn-primary">Top Up</button>
+                    </a>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        </article>
+                <article class="card contact-card">
+                <h3>Contact</h3>
+                <p class="small">If you have any questions, reach out:</p>
+                <p><strong>Email:</strong> <a href="mailto:info@zento-topup.example">info@zento-topup.example</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+1234567890">+1 234 567 890</a></p>
+                <p><strong>Address:</strong> 123 Zento Street, Phnom Penh, Cambodia</p>
+            </article>
+        <p>&copy; 2024 ZENTO-TopUp. All rights reserved.</p>
+    </footer>
+
+    <script>
+    (function(){
+        const slider = document.getElementById('hero-slider');
+        if(!slider) return;
+        const slidesWrap = slider.querySelector('.slides');
+        const slides = Array.from(slider.querySelectorAll('.slide'));
+        const prevBtn = slider.querySelector('.slider-btn.prev');
+        const nextBtn = slider.querySelector('.slider-btn.next');
+        const dots = Array.from(slider.querySelectorAll('.dot'));
+        let current = 0;
+        let timer = null;
+
+        function update(){
+            slidesWrap.style.transform = `translateX(-${current * 100}%)`;
+            dots.forEach((d,i)=> d.classList.toggle('active', i===current));
+        }
+        function go(n){ current = (n + slides.length) % slides.length; update(); }
+        function next(){ go(current+1); }
+        function prev(){ go(current-1); }
+        function start(){ if(timer) return; timer = setInterval(next, 4000); }
+        function stop(){ if(!timer) return; clearInterval(timer); timer = null; }
+
+        if(prevBtn) prevBtn.addEventListener('click', ()=>{ prev(); stop(); start(); });
+        if(nextBtn) nextBtn.addEventListener('click', ()=>{ next(); stop(); start(); });
+        dots.forEach((dot, i)=> dot.addEventListener('click', ()=>{ go(i); stop(); start(); }));
+
+        slider.addEventListener('mouseenter', stop);
+        slider.addEventListener('focusin', stop);
+        slider.addEventListener('mouseleave', start);
+        slider.addEventListener('focusout', start);
+
+        // initialize
+        update();
+        start();
+        // lazy-load backgrounds (optional): replace with actual images if desired
+    })();
+    </script>
+
+</body>
+</html>
